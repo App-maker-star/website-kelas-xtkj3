@@ -1,1 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>XT-KJ 3 | Website Kelas</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Tombol Admin -->
+  <button class="admin-btn" onclick="openLogin()">⚙️</button>
+
+  <!-- HEADER -->
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="badge">TECHNICAL COMPUTER & NETWORK</div>
+
+      <h1>XT-KJ <span>3</span></h1>
+
+      <p>
+        Bersama membangun masa depan melalui teknologi.
+      </p>
+
+      <div class="hero-buttons">
+        <button onclick="showSection('students')">
+          👨‍🎓 Lihat Siswa
+        </button>
+
+        <button class="outline" onclick="showSection('activities')">
+          📸 Kegiatan
+        </button>
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+
+    <button onclick="showSection('home')">
+      🏠
+      <span>Beranda</span>
+    </button>
+
+    <button onclick="showSection('students')">
+      👨‍🎓
+      <span>Siswa</span>
+    </button>
+
+    <button onclick="showSection('activities')">
+      📸
+      <span>Kegiatan</span>
+    </button>
+
+    <button onclick="showSection('about')">
+      ℹ️
+      <span>Tentang</span>
+    </button>
+
+  </nav>
+
+
+  <!-- CONTENT -->
+
+  <main>
+
+    <!-- HOME -->
+
+    <section id="home" class="section active">
+
+      <div class="section-title">
+
+        <span>01</span>
+
+        <div>
+          <p>WELCOME TO</p>
+          <h2>XT-KJ 3</h2>
+        </div>
+
+      </div>
+
+
+      <div class="info-grid">
+
+        <div class="info-card">
+
+          <div class="icon">👨‍🎓</div>
+
+          <h3>Data Siswa</h3>
+
+          <p>
+            Informasi anggota kelas XT-KJ 3.
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <div class="icon">📸</div>
+
+          <h3>Kegiatan</h3>
+
+          <p>
+            Dokumentasi kegiatan kelas.
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <div class="icon">💻</div>
+
+          <h3>Teknologi</h3>
+
+          <p>
+            Belajar komputer dan jaringan.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- STUDENTS -->
+
+    <section id="students" class="section">
+
+      <div class="section-title">
+
+        <span>02</span>
+
+        <div>
+          <p>MEMBERS</p>
+          <h2>Daftar Siswa</h2>
+        </div>
+
+      </div>
+
+
+      <div id="studentList" class="student-grid">
+
+        <div class="empty">
+
+          <div>👨‍🎓</div>
+
+          <h3>Belum Ada Data Siswa</h3>
+
+          <p>
+            Data siswa akan muncul setelah database Firebase terhubung.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ACTIVITIES -->
+
+    <section id="activities" class="section">
+
+      <div class="section-title">
+
+        <span>03</span>
+
+        <div>
+          <p>DOCUMENTATION</p>
+          <h2>Kegiatan Kelas</h2>
+        </div>
+
+      </div>
+
+
+      <div id="activityList" class="activity-grid">
+
+        <div class="empty">
+
+          <div>📸</div>
+
+          <h3>Belum Ada Kegiatan</h3>
+
+          <p>
+            Postingan kegiatan akan muncul di sini.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about" class="section">
+
+      <div class="section-title">
+
+        <span>04</span>
+
+        <div>
+          <p>ABOUT US</p>
+          <h2>Tentang XT-KJ 3</h2>
+        </div>
+
+      </div>
+
+
+      <div class="about-card">
+
+        <h2>XT-KJ 3</h2>
+
+        <p>
+          Website resmi kelas XT-KJ 3.
+        </p>
+
+        <p>
+          Digunakan untuk berbagi informasi,
+          data siswa, serta dokumentasi kegiatan kelas.
+        </p>
+
+        <div class="tech">
+
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>Firebase</span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- LOGIN ADMIN -->
+
+  <div id="loginModal" class="modal">
+
+    <div class="modal-box">
+
+      <button class="close" onclick="closeLogin()">×</button>
+
+      <div class="login-icon">
+        ⚙️
+      </div>
+
+      <h2>Admin Login</h2>
+
+      <p>
+        Masuk untuk mengelola website kelas.
+      </p>
+
+
+      <input
+        type="text"
+        id="username"
+        placeholder="Username"
+      >
+
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+      >
+
+
+      <button class="login-btn" onclick="loginAdmin()">
+        Login
+      </button>
+
+
+      <div id="loginMessage"></div>
+
+    </div>
+
+  </div>
+
+
+  <footer>
+
+    <h3>XT-KJ 3</h3>
+
+    <p>
+      Website Kelas • Teknik Komputer dan Jaringan
+    </p>
+
+    <p class="copyright">
+      © 2026 XT-KJ 3
+    </p>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
