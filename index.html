@@ -292,7 +292,125 @@
     </div>
 
   </div>
+<!-- ================================
+     ADMIN PANEL
+================================= -->
 
+<section id="adminPanel" class="admin-panel">
+
+  <div class="admin-header">
+
+    <div>
+      <p class="admin-label">CONTROL PANEL</p>
+      <h2>Admin XT-KJ 3</h2>
+      <p id="adminEmail"></p>
+    </div>
+
+    <button onclick="logoutAdmin()" class="logout-btn">
+      Logout
+    </button>
+
+  </div>
+
+
+  <div class="admin-menu">
+
+    <button onclick="openAdminTab('studentsAdmin')">
+      👨‍🎓
+      <span>Kelola Siswa</span>
+    </button>
+
+    <button onclick="openAdminTab('activitiesAdmin')">
+      📸
+      <span>Kelola Kegiatan</span>
+    </button>
+
+    <button onclick="openAdminTab('accountAdmin')">
+      🔐
+      <span>Akun</span>
+    </button>
+
+  </div>
+
+
+  <!-- KELOLA SISWA -->
+
+  <div id="studentsAdmin" class="admin-tab">
+
+    <div class="admin-tab-header">
+
+      <div>
+        <p>DATA</p>
+        <h3>Daftar Siswa</h3>
+      </div>
+
+      <button onclick="addStudent()" class="add-btn">
+        + Tambah Siswa
+      </button>
+
+    </div>
+
+    <div id="adminStudentList">
+      Memuat data...
+    </div>
+
+  </div>
+
+
+  <!-- KELOLA KEGIATAN -->
+
+  <div id="activitiesAdmin" class="admin-tab">
+
+    <div class="admin-tab-header">
+
+      <div>
+        <p>CONTENT</p>
+        <h3>Kegiatan Kelas</h3>
+      </div>
+
+      <button onclick="addActivity()" class="add-btn">
+        + Tambah Kegiatan
+      </button>
+
+    </div>
+
+    <div id="adminActivityList">
+      Memuat data...
+    </div>
+
+  </div>
+
+
+  <!-- AKUN -->
+
+  <div id="accountAdmin" class="admin-tab">
+
+    <div class="admin-tab-header">
+
+      <div>
+        <p>SECURITY</p>
+        <h3>Pengaturan Akun</h3>
+      </div>
+
+    </div>
+
+    <div class="account-box">
+
+      <p>Email admin:</p>
+
+      <strong id="currentAdminEmail">
+        -
+      </strong>
+
+      <button onclick="changeAdminPassword()" class="add-btn">
+        🔑 Ganti Password
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
 
   <footer>
 
