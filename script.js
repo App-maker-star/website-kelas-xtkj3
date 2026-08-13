@@ -1,3 +1,32 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBPEF6zlD1JpmrYKR--KZYpAKu-kM6IlWM",
+  authDomain: "xt-kj-3.firebaseapp.com",
+  projectId: "xt-kj-3",
+  storageBucket: "xt-kj-3.firebasestorage.app",
+  messagingSenderId: "380649197606",
+  appId: "1:380649197606:web:e980d3eff76c3c8c8116e7"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+const db = getFirestore(app); 
 // ================================
 // NAVIGASI
 // ================================
