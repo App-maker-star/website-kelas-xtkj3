@@ -2,7 +2,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/fireba
 import {
   getAuth,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
+  onAuthStateChanged,
+  updatePassword
 } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 import {
   getFirestore,
@@ -90,13 +92,33 @@ document.getElementById("loginModal").addEventListener("click", function (event)
 // di dalam website.
 //
 
-function loginAdmin() {
+async function loginAdmin() {
+  const email = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value;
   const message = document.getElementById("loginMessage");
 
-  message.textContent =
-    "Firebase belum terhubung. Kita sambungkan pada langkah berikutnya.";
+  if (!email || !password) {
+    message.textContent = "Email dan password wajib diisi.";
+    message.style.color = "#ff6b6b";
+    return;
+  }
 
-  message.style.color = "#00e5ff";
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+
+    message.textContent = "Login berhasil!";
+    message.style.color = "#00e5ff";
+
+    setTimeout(() => {
+      closeLogin();
+      openAdminPanel();
+    }, 700);
+
+  } catch (error) {
+    console.error(error);
+    message.textContent = "Email atau password salah.";
+    message.style.color = "#ff6b6b";
+  }
 }
 
 
