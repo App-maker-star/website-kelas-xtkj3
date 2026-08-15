@@ -132,3 +132,57 @@ if (year) {
   year.textContent =
     `© ${new Date().getFullYear()} XT-KJ 3`;
 }
+
+// =================================
+// TAMBAH SISWA
+// =================================
+
+async function addStudent() {
+
+  const user = auth.currentUser;
+
+  if (!user) {
+    alert("Silakan login sebagai admin terlebih dahulu.");
+    return;
+  }
+
+  const name = prompt("Nama siswa:");
+
+  if (!name || !name.trim()) {
+    return;
+  }
+
+  const number = prompt("Nomor absen:");
+
+  if (!number || !number.trim()) {
+    return;
+  }
+
+  const role = prompt(
+    "Keterangan siswa:",
+    "Siswa XT-KJ 3"
+  );
+
+  try {
+
+    await addDoc(collection(db, "students"), {
+      name: name.trim(),
+      number: number.trim(),
+      role: role?.trim() || "Siswa XT-KJ 3",
+      createdAt: new Date()
+    });
+
+    alert("Siswa berhasil ditambahkan! 🎉");
+
+    await loadStudents();
+
+  } catch (error) {
+
+    console.error(error);
+
+    alert(
+      "Gagal menambahkan siswa. Cek koneksi Firebase dan Security Rules."
+    );
+
+  }
+}
