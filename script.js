@@ -55,21 +55,26 @@ function showSection(sectionId) {
 // LOGIN MODAL
 // ================================
 
-function openLogin() {
+window.openLogin = function() {
   document.getElementById("loginModal").classList.add("show");
+
+  setTimeout(() => {
+    document.getElementById("username").focus();
+  }, 100);
+};
 
   setTimeout(() => {
     document.getElementById("username").focus();
   }, 100);
 }
 
-function closeLogin() {
+window.closeLogin = function() {
   document.getElementById("loginModal").classList.remove("show");
 
   document.getElementById("username").value = "";
   document.getElementById("password").value = "";
   document.getElementById("loginMessage").textContent = "";
-}
+};
 
 
 // Tutup modal ketika klik di luar kotak
