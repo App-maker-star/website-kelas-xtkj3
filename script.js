@@ -1,11 +1,11 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+import { initializeApp } from "[gstatic.com](https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js)";
 import {
   getAuth,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
   updatePassword
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+} from "[gstatic.com](https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js)";
 import {
   getFirestore,
   collection,
@@ -14,7 +14,7 @@ import {
   updateDoc,
   deleteDoc,
   doc
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+} from "[gstatic.com](https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js)";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBPEF6zlD1JpmrYKR--KZYpAKu-kM6IlWM",
@@ -26,9 +26,9 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
 const auth = getAuth(app);
-const db = getFirestore(app); 
+const db = getFirestore(app);
+
 // ================================
 // NAVIGASI
 // ================================
@@ -39,65 +39,45 @@ function showSection(sectionId) {
   });
 
   const target = document.getElementById(sectionId);
-
   if (target) {
     target.classList.add("active");
   }
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
-
+window.showSection = showSection;
 
 // ================================
 // LOGIN MODAL
 // ================================
 
-window.openLogin = function() {
-  document.getElementById("loginModal").classList.add("show")};
+window.openLogin = function () {
+  document.getElementById("loginModal").classList.add("show");
 
   setTimeout(() => {
     document.getElementById("username").focus();
   }, 100);
 };
 
-  setTimeout(() => {
-    document.getElementById("username").focus();
-  }, 100);
-}
-
-window.closeLogin = function() {
+window.closeLogin = function () {
   document.getElementById("loginModal").classList.remove("show");
-
   document.getElementById("username").value = "";
   document.getElementById("password").value = "";
   document.getElementById("loginMessage").textContent = "";
 };
 
-
 // Tutup modal ketika klik di luar kotak
-
 document.getElementById("loginModal").addEventListener("click", function (event) {
   if (event.target === this) {
     closeLogin();
   }
 });
 
-
 // ================================
 // FIREBASE LOGIN
 // ================================
-//
-// Login asli akan dipasang setelah
-// Firebase project dibuat.
-//
-// TIDAK ADA username/password demo
-// di dalam website.
-//
 
-window.loginAdmin = async function() {
+window.loginAdmin = async function () {
   const email = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value;
   const message = document.getElementById("loginMessage");
@@ -124,18 +104,15 @@ window.loginAdmin = async function() {
     message.textContent = "Email atau password salah.";
     message.style.color = "#ff6b6b";
   }
-}
-
+};
 
 // ================================
 // TAHUN FOOTER
 // ================================
 
 const year = document.querySelector(".copyright");
-
 if (year) {
-  year.textContent =
-    `© ${new Date().getFullYear()} XT-KJ 3`;
+  year.textContent = `© ${new Date().getFullYear()} XT-KJ 3`;
 }
 
 // =================================
@@ -143,7 +120,6 @@ if (year) {
 // =================================
 
 async function addStudent() {
-
   const user = auth.currentUser;
 
   if (!user) {
@@ -152,24 +128,14 @@ async function addStudent() {
   }
 
   const name = prompt("Nama siswa:");
-
-  if (!name || !name.trim()) {
-    return;
-  }
+  if (!name || !name.trim()) return;
 
   const number = prompt("Nomor absen:");
+  if (!number || !number.trim()) return;
 
-  if (!number || !number.trim()) {
-    return;
-  }
-
-  const role = prompt(
-    "Keterangan siswa:",
-    "Siswa XT-KJ 3"
-  );
+  const role = prompt("Keterangan siswa:", "Siswa XT-KJ 3");
 
   try {
-
     await addDoc(collection(db, "students"), {
       name: name.trim(),
       number: number.trim(),
@@ -178,16 +144,11 @@ async function addStudent() {
     });
 
     alert("Siswa berhasil ditambahkan! 🎉");
-
     await loadStudents();
 
   } catch (error) {
-
     console.error(error);
-
-    alert(
-      "Gagal menambahkan siswa. Cek koneksi Firebase dan Security Rules."
-    );
-
+    alert("Gagal menambahkan siswa. Cek koneksi Firebase dan Security Rules.");
   }
 }
+window.addStudent = addStudent;
