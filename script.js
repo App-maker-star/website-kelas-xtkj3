@@ -56,7 +56,7 @@ function showSection(sectionId) {
 // ================================
 
 window.openLogin = function() {
-  document.getElementById("loginModal").classList.add("show");
+  document.getElementById("loginModal").classList.add("show")};
 
   setTimeout(() => {
     document.getElementById("username").focus();
@@ -97,7 +97,7 @@ document.getElementById("loginModal").addEventListener("click", function (event)
 // di dalam website.
 //
 
-async function loginAdmin() {
+window.loginAdmin = async function() {
   const email = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value;
   const message = document.getElementById("loginMessage");
