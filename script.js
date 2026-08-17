@@ -5,7 +5,7 @@ import {
   signOut,
   onAuthStateChanged,
   updatePassword
-} from "[gstatic.com](https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js)";
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 import {
   getFirestore,
   collection,
@@ -14,7 +14,7 @@ import {
   updateDoc,
   deleteDoc,
   doc
-} from "[gstatic.com](https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js)";
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBPEF6zlD1JpmrYKR--KZYpAKu-kM6IlWM",
